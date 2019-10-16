@@ -1,6 +1,42 @@
 import UIKit
 
 var str = "Hello, playground"
+
+// MARK: API Documentation
+
+// http://linux-zake.local/mediawiki/index.php/Comparables_-_Set_Config
+
+protocol ResponseHandler {
+    
+}
+
+// MARK: Singleton
+
+class LocationManager {
+    static let shared = LocationManager()
+    //Making the init private avoid to initialize a singleton again
+    private init(){}
+    
+    func requestionLocation(){
+        print("Location granted")
+    }
+}
+// How to use the singleton
+LocationManager.shared.requestionLocation()
+
+// MARK: Dependency Injection
+
+class DataManager {
+    private var delegate: ResponseHandler
+    init(delegate: ResponseHandler) {
+        self.delegate = delegate
+    }
+    
+    func requestData(){
+        //Code here
+    }
+}
+
 /*
 func chipField(_ chipField: MDCChipField, didChangeInput input: String?) {
     if let timer = searchTimeout {
@@ -19,6 +55,17 @@ func chipField(_ chipField: MDCChipField, didChangeInput input: String?) {
             }
         })
 }
+ 
+// MARK: Macro
+ 
+ 
+
+// MARK: Swift Concepts
+ 
+ // Lazy: The initialzer of the object is run the first time it is used instead at the moment of creation.
+ 
+ 
+ 
  
 // MARK: Equatable
  
@@ -85,6 +132,10 @@ func chipField(_ chipField: MDCChipField, didChangeInput input: String?) {
  9. It will ask to open sourcetree.
  10.Click chekcout on the popup, so I will be working in the branch created for the type. (Step 4)
  
+// MARK: Git
+ 
+ A branch that is merged might be deleted from origin. 
+ 
  
 // MARK: Changes in presenting viewControllers
  
@@ -140,6 +191,34 @@ func chipField(_ chipField: MDCChipField, didChangeInput input: String?) {
              navCtrl.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
          }
      }
+ }
+ 
+// MARK: UISearchBar
+ 
+ This change the background color of the whole view
+ self.searchBar.backgroundColor
+ 
+ This change the color of the background of the textField
+ self.searchBar.searchTextField.backgroundColor
+ 
+// MARK: Constraints and UIFitting
+ 
+ systemLayoutSizeFitting
+ This function returns a CGSize which is the optimal size for the view that satisfies all the constraints and it is as close as the targetSize as possible
+ 
+// MARK: Favorite Request
+ 
+ The server will return the Agent Favourites if the request does not have any contact ID
+ 
+ - (NSMutableDictionary*)jsonExtention
+ 
+ if (numberNotZero(self.contactId))
+ {
+     self.mergedExtension[kGetFavoritesContactIdKey] = self.contactId;
+ }
+ else
+ {
+     [self.mergedExtension removeObjectForKey:kGetFavoritesContactIdKey];
  }
  
 
