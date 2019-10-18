@@ -221,8 +221,29 @@ func chipField(_ chipField: MDCChipField, didChangeInput input: String?) {
      [self.mergedExtension removeObjectForKey:kGetFavoritesContactIdKey];
  }
  
+// MARK: Layout Configuration
+ 
+ // Predicting Size Classes
+    From iOS 13 it will predict the initial traits for a view. This means that if it guess right, the traitCollectionDidChange will not get triggered.
+    If your app needs to respond to size class changes, it’s important you implement the traitCollectionDidChange method.
+    There you can check the size class of the current trait collection and respond appropriately.
+ 
+ override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+     if traitCollection.horizontalSizeClass == .compact {
+         // load slim view
+     } else {
+         // load wide view
+     }
+ }
+ 
+ 
+ 
 
 // MARK: GoMLS changes
+ 
+ 
+ 
+ 
  GOMLS-73
  - Remove the "X" in top right as it's action is accomplished by the "View Results" pill
  - Move "Reset" to top right
