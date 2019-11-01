@@ -147,6 +147,15 @@ func chipField(_ chipField: MDCChipField, didChangeInput input: String?) {
  Getter
  self.isModalInPresentation
  
+ .formSheet
+ In a horizontally and vertically regular environment, this option adds a dimming layer over the background content and displays the view controller's content centered on the screen.
+ The actual dimensions are smaller than those of the UIModalPresentationStyle.pageSheet presentation style, and a portion of the underlying content always remains visible.
+ In cases where the underlying content remains visible, the presenting view controller doesn't receive the viewWillDisappear(_:) and viewDidDisappear(_:) callbacks.
+ 
+// MARK: Navigagion Controller
+ 
+ The navigation controller does not count in the stack view controller.
+ 
 // MARK: PushNotifications
  
  In other to know if something happens inside the app, like a notification. We have to use observer that are listening or waiting for messages.
@@ -236,6 +245,16 @@ func chipField(_ chipField: MDCChipField, didChangeInput input: String?) {
      }
  }
  
+// MARK: UI
+ 
+ setContentHuggingPriority(_:for:)
+    high = will force the view to shrink to minimal space in the direction we specify
+    low = it will take the as much space as it can compare to the one that is set to high
+ 
+ setContentCompressionResistancePriority:forAxis:
+    high = will prioritize the space requiere for the view against the other one
+    low = i will truncate the view if it is necessary.
+ 
  
  
 
@@ -295,5 +314,8 @@ func chipField(_ chipField: MDCChipField, didChangeInput input: String?) {
  // Later
  
  "InTheCurrentMapArea" : "In the current map area"
+ 
+ 
+ self.navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: closeButton)]
  
  */
